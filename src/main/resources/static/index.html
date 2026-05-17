@@ -102,12 +102,18 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
         </div>
         <div class="modal-body">
-          <input type="text" id="add-firstName" class="form-control mb-2" placeholder="First Name">
-          <input type="text" id="add-lastName"  class="form-control mb-2" placeholder="Last Name">
-          <input type="email" id="add-email"     class="form-control mb-2" placeholder="Email">
-          <input type="text" id="add-phone"      class="form-control mb-2" placeholder="Phone">
-          <input type="text" id="add-designation" class="form-control mb-2" placeholder="Designation">
-        </div>
+  <input type="text" id="add-firstName" class="form-control mb-2" placeholder="First Name">
+  <input type="text" id="add-lastName"  class="form-control mb-2" placeholder="Last Name">
+  <input type="email" id="add-email"     class="form-control mb-2" placeholder="Email">
+  <input type="text" id="add-phone"      class="form-control mb-2" placeholder="Phone">
+  <input type="text" id="add-designation" class="form-control mb-2" placeholder="Designation">
+  <select id="add-department" class="form-select mb-2">
+    <option value="">Select Department</option>
+    <option value="1">Engineering</option>
+    <option value="2">HR</option>
+    <option value="3">Marketing</option>
+  </select>
+</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
           <button class="btn btn-primary" onclick="addEmployee()">Save</button>

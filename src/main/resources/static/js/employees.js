@@ -17,13 +17,15 @@ async function searchEmployees(keyword) {
 }
 
 async function addEmployee() {
+    const deptId = document.getElementById('add-department').value;
     const employee = {
         firstName:   document.getElementById('add-firstName').value,
         lastName:    document.getElementById('add-lastName').value,
         email:       document.getElementById('add-email').value,
         phone:       document.getElementById('add-phone').value,
         designation: document.getElementById('add-designation').value,
-        status:      'ACTIVE'
+        status:      'ACTIVE',
+        department:  deptId ? { id: parseInt(deptId) } : null
     };
     await fetch(API, {
         method:  'POST',
@@ -32,6 +34,7 @@ async function addEmployee() {
     });
     bootstrap.Modal.getInstance(document.getElementById('addModal')).hide();
     loadEmployees();
+}
 }
 
 async function deleteEmployee(id) {
