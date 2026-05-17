@@ -27,13 +27,24 @@ async function addEmployee() {
         status:      'ACTIVE',
         department:  deptId ? { id: parseInt(deptId) } : null
     };
-    await fetch(API, {
-        method:  'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body:    JSON.stringify(employee)
-    });
-    bootstrap.Modal.getInstance(document.getElementById('addModal')).hide();
-    loadEmployees();
+
+    try {
+        const res = await fetch(API, {
+            method:  'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body:    JSON.stringify(employee)
+        });
+        if (!res.ok) {
+            const err = await res.text();
+            alert('Error saving: ' + err);
+            return;
+        }
+        bootstrap.Modal.getInstance(document.getElementById('addModal')).hide();
+        loadEmployees();
+    } catch (e) {
+        alert('Failed to save: ' + e.message);
+    }
+}
 }
 }
 
